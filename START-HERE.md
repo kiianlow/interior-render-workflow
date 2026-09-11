@@ -1,8 +1,8 @@
 # Interior Render Workflow: START HERE
 
-Version 2.0
+Version 2.0.1
 
-Read this whole file before any render. It is the complete engine. The files in `rules/`, `prompts/`, `styles/` and `projects/template/` add detail. If any file conflicts with this one, this file wins.
+Read this whole file before any render. It is the complete engine. The other files in this repo add detail. If any file conflicts with this one, this file wins.
 
 ## 1. Core principle
 
@@ -122,18 +122,18 @@ If the user attaches a mood reference image, it guides styling only.
 
 | # | Style | File |
 |---|---|---|
-| 01 | Modern Minimalist Singapore Condo | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/styles/01-modern-minimalist-singapore.md |
-| 02 | Scandinavian Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/styles/02-scandinavian-luxury.md |
-| 03 | Japandi Warm Minimalism | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/styles/03-japandi-warm-minimalism.md |
-| 04 | Wabi-Sabi Natural Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/styles/04-wabi-sabi-natural-luxury.md |
-| 05 | Quiet Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/styles/05-quiet-luxury.md |
-| 06 | Contemporary Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/styles/06-contemporary-luxury.md |
-| 07 | Organic Modern | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/styles/07-organic-modern.md |
-| 08 | Modern Tropical Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/styles/08-modern-tropical-luxury.md |
-| 09 | Soft Contemporary | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/styles/09-soft-contemporary.md |
-| 10 | Dark Modern Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/styles/10-dark-modern-luxury.md |
+| 01 | Modern Minimalist Singapore Condo | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/01-modern-minimalist-singapore.md |
+| 02 | Scandinavian Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/02-scandinavian-luxury.md |
+| 03 | Japandi Warm Minimalism | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/03-japandi-warm-minimalism.md |
+| 04 | Wabi-Sabi Natural Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/04-wabi-sabi-natural-luxury.md |
+| 05 | Quiet Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/05-quiet-luxury.md |
+| 06 | Contemporary Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/06-contemporary-luxury.md |
+| 07 | Organic Modern | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/07-organic-modern.md |
+| 08 | Modern Tropical Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/08-modern-tropical-luxury.md |
+| 09 | Soft Contemporary | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/09-soft-contemporary.md |
+| 10 | Dark Modern Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/10-dark-modern-luxury.md |
 
-If a link will not open, use the matching file at https://github.com/kiianlow/interior-render-workflow/tree/main/styles and say which one you used.
+If a link will not open, use the matching file at https://github.com/kiianlow/interior-render-workflow and say which one you used.
 
 ## 9. Generation prompt
 
@@ -151,7 +151,7 @@ Build it in this order and keep it under about 200 words:
 
 State the architecture positively. Long lists of "do not" items dilute the prompt.
 
-Full template: `prompts/generation-prompt.md`.
+Full template: `generation-prompt.md`.
 
 ## 10. QC with evidence
 
@@ -181,7 +181,7 @@ Decision: ACCEPT only when there is no MAJOR and no UNCLEAR on doors, windows, o
 - MINOR or styling issues: edit the current render and change only the named element.
 - Maximum 3 attempts per render. After the third, stop. Report what keeps failing and the likely fix, such as supplying a reference photo, stating dimensions, or choosing a simpler camera.
 
-Short user commands and how to handle them: `prompts/refinements.md`.
+Short user commands and how to handle them: `refinements.md`.
 
 ## 12. Style Lock for multi-room units
 
@@ -196,4 +196,4 @@ After the first accepted render of a unit, write this in the chat and reuse it f
 - Key furniture pieces
 - Lighting temperature and time of day
 
-Template: `projects/template/style-lock.md`.
+Template: `style-lock.md`.

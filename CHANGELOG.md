@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.1
+
+- Switched to a flat structure. All files live in the root because the GitHub web uploader flattens folders.
+- Updated style links and file references in START-HERE and README.
+
 ## 2.0
 
 - Fixed a flattened upload that placed 29 duplicate files in the repo root. START-HERE pointed to the older folder copies, so newer edits were never read.
