@@ -1,4 +1,4 @@
-# Style 09 — Soft Contemporary
+# Style 09: Soft Contemporary
 
 ## Design Identity
 
@@ -64,6 +64,8 @@ Use:
 
 The atmosphere should be warm and comfortable.
 
+Recessed, cove and linear lights only where the ceiling already has a false ceiling (START-HERE section 7). Otherwise use pendants, surface ceiling lights, wall lights and lamps.
+
 ## Curtains
 
 Prefer:
@@ -72,6 +74,12 @@ Prefer:
 - Cream
 - Beige
 - Full-height curtains
+
+## Wet Areas and Kitchen
+
+- Bathroom floor and walls: Warm grey matte porcelain
+- Bathroom fittings: Light oak vanity, white basin, soft bronze tapware
+- Kitchen: Soft white cabinets with oak accents, light quartz counter
 
 ## Decorative Styling
 

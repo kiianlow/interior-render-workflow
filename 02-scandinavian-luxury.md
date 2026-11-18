@@ -1,4 +1,4 @@
-# Style 02 — Scandinavian Luxury
+# Style 02: Scandinavian Luxury
 
 ## Design Identity
 
@@ -73,6 +73,8 @@ Use:
 
 Keep lighting gentle and comfortable.
 
+Recessed, cove and linear lights only where the ceiling already has a false ceiling (START-HERE section 7). Otherwise use pendants, surface ceiling lights, wall lights and lamps.
+
 ## Curtains
 
 Prefer:
@@ -80,6 +82,12 @@ Prefer:
 - Linen
 - Floor-to-ceiling curtains
 - Soft neutral fabrics
+
+## Wet Areas and Kitchen
+
+- Bathroom floor and walls: Pale grey matte porcelain or microcement-look tiles
+- Bathroom fittings: Light ash or oak vanity, white basin, brushed brass or muted black tapware
+- Kitchen: Warm white flat-panel cabinets with light oak accents, pale quartz counter
 
 ## Decorative Styling
 

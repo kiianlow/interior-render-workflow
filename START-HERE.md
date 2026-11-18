@@ -1,8 +1,10 @@
 # Interior Render Workflow: START HERE
 
-Version 2.0.1
+Version 3.0.0
 
-Read this whole file before any render. It is the complete engine. The other files in this repo add detail. If any file conflicts with this one, this file wins.
+Read this whole file before any render. It is the complete engine and holds every rule. Open only one other file: the style file the user picks.
+
+Start your first reply with this line: "Engine 3.0.0 loaded. Style file: [number and name]." If this file or the style file will not open, say which link failed and stop. Never guess the rules or the style.
 
 ## 1. Core principle
 
@@ -10,119 +12,202 @@ Architecture is locked. Interior styling changes.
 
 Preserve before beautify. Match before invent. Fit before decorate. Realistic scale before visual drama.
 
+These renders market real homes. Never show a feature the unit does not have: no extra windows, doors, balconies or pools, no bigger rooms, higher ceilings or better views. When accuracy and looks conflict, accuracy wins.
+
 ## 2. Run sequence
 
-The user sends a source image plus a short kickoff (room, style, property context). If source, room and style are present, do not ask clarifying questions. Use the defaults in section 3 for anything missing and list which defaults you used.
+The user sends a source (floor plan, reference photo or both) and a kickoff. If source, room and style are present, ask no questions except the Unit Check below.
 
-1. Read the source image(s).
-2. Open the selected style file (links in section 8).
-3. Write the Architecture Lock (section 4) and show it in the chat.
-4. Write the Camera Lock (section 5).
-5. Apply Singapore property context (section 6).
-6. Define the room design and furniture staging.
-7. Build the generation prompt (section 9) and generate.
-8. Run evidence-based QC (section 10) and show the QC table.
-9. Revise using section 11.
-10. After the first accepted render of a unit, write a Style Lock (section 12) and reuse it for every other room in that unit.
+Floor plan, first room of a unit:
 
-Chat output order: Architecture Lock, Camera Lock, Defaults used, render, QC table, decision. Keep text short.
+1. Print the version line.
+2. Read the plan (section 4). Find the printed room label. Look for a camera marker.
+3. Write the Unit Lock (section 5), then the Camera Lock and Room Map for this room (section 6).
+4. Unit Check. Show the three blocks, then stop with: "Check these against the plan. Reply go, or correct a line." Do not generate yet.
+5. After "go", apply any corrections, run the visibility check (section 6), build the prompt (section 10) and generate.
+6. QC (section 11). Show the table and the decision.
+7. Revise if needed (section 12).
+8. After the first accepted render, write the Style Lock (section 13). After every accepted render, print the caption (section 15) and the Run Summary (section 14).
+
+Floor plan, next room in the same unit: reuse the checked Unit Lock and the Style Lock. Write the Camera Lock and Room Map, then generate in the same reply. Stop for a check only if the room needs a door, window or opening that is not in the Unit Lock, or the kickoff says "check first".
+
+Unit Lock or Run Summary pasted by the user: treat the Unit Lock as checked and skip the Unit Check.
+
+Reference photo: no Unit Lock. Write a short Architecture Lock of what the photo shows (doors, windows, openings, columns, beams, built-ins, fixed features, uncertain items). The camera matches the photo. Generate without stopping.
+
+Keep chat text short. Order: version line, locks, defaults used, render, QC table, decision, caption.
 
 ## 3. Inputs and defaults
 
 | Input | Required | Default if missing |
 |---|---|---|
-| Source image | Yes | None. Stop and ask for it. |
-| Room | Yes | None. Stop and ask for it. |
-| Style | Yes | None. Stop and ask for it. |
+| Source | Yes | None. Stop and ask. |
+| Room | Yes | None. Stop and ask. |
+| Style | Yes | None. Stop and ask. For a style not in section 9, use the closest and say which. |
 | Property type | No | Singapore apartment with standard proportions |
 | Floor level | No | Mid floor |
-| View | No | Neutral view for the level (section 6) |
-| Camera | No | Generated camera (section 5) |
-| Time of day | No | Late morning daylight |
-| Format | No | Landscape |
-| Purpose | No | Property marketing (section 7) |
+| Balcony or outdoor space | No | As the plan shows |
+| Camera | No | Marker on the plan, otherwise the section 6 defaults |
+| Time of day | No | Late morning |
+| Frame | No | Landscape |
+| Purpose | No | Property marketing |
 
-## 4. Architecture Lock
+List every default you used in one line.
 
-Before generating, list what the source shows. Use counts and wall positions, not general statements.
+## 4. Reading a floor plan
 
-- Room shape and proportions. Dimensions if printed.
-- Doors: count, which wall, swing direction.
-- Windows: count, which wall, type (full-height, bay, casement, sliding).
-- Openings to other rooms.
-- Columns, beams, bulkheads, ceiling level changes.
-- Built-ins: kitchen runs, wardrobes, household shelter door, DB box, fixed cabinetry.
-- Outdoor elements: balcony, yard, planter, AC ledge, PES.
-- Stairs, railings, pool, deck where they exist.
-- Uncertain items: list them and render them conservatively.
+Directions. Use plan directions, never compass directions, because plans are rarely drawn north-up. Plan-up is the top of the drawing as supplied. Plan-down, plan-left and plan-right follow from it.
 
-Do not move, resize, add, remove, mirror, straighten or redesign any locked element unless the user asks. If the style conflicts with the architecture, change the styling.
+Room names. Use the label printed on the plan. Synonyms: master bedroom = MAIN BEDROOM. Common bedroom = BEDROOM 2 or BEDROOM 3. Bomb shelter = HS = HOUSEHOLD SHELTER. Toilet = BATH or W.C. Ensuite = the bath whose door opens from a bedroom.
 
-Floorplan reading notes:
-- Common Singapore plan labels: HS (household shelter, steel door, must stay), BAL (balcony), PES (private enclosed space, ground floor), A/C LEDGE and PL (planter) are outdoor and not furnished as rooms, WIC (walk-in closet), DB (distribution board).
-- Door swings show door position and opening direction. Keep both.
-- Dashed lines usually mark elements above the cut line, such as beams, bulkheads or overhead cabinets. Treat them as present.
+Legend for Singapore plans:
+- Solid black fill: reinforced concrete (RC) wall or column. Never a window.
+- Thin double line between columns: partition, brick wall or glazing. With no swing arc and no glazing mark it is uncertain. Render it as solid wall. Never add a window on a guess.
+- Arcs on an exterior wall: casement window leaves. Count them.
+- Arc from a door: hinge side and swing direction. Keep both.
+- DROP with an arrow: a floor level drop, used at wet areas, the yard and the main entrance. "100 DROP" is a 100 mm step.
+- A bath whose door opens inside a bedroom is an ensuite. It is not on the corridor.
+- Household shelter: thick black walls, steel door, no window. Check which space its door opens into. It varies by unit.
+- Dashed lines: elements above the cut line, such as beams, bulkheads or overhead cabinets. Treat them as present.
+- A/C LEDGE, PL (planter), yard louvres: outdoor. Never furnished as rooms.
+- Other labels: BAL balcony, PES private enclosed space (ground floor), WIC walk-in closet, DB distribution board.
 
-## 5. Camera Lock
+Measuring. Use printed dimensions first. For a segment with no printed dimension, take the scale from the nearest printed overall dimension and mark the value "est". Never round a room into a square.
 
-Reference photo supplied: use it as the base image. Match camera position, height, direction, lens, framing and crop. Do not widen the view to make the room look bigger.
+Camera marker. A red dot on the plan is the camera. A red arrow from it is the view direction. A marker overrides the kickoff camera line. If the marker is unclear, say so in the Camera Lock.
 
-Floorplan only: the camera is generated. State it in one line, for example: "Camera: from the main door looking toward the balcony, eye level 1.4 m, 24 mm equivalent, verticals straight." Defaults:
+## 5. Unit Lock
 
-- Eye level about 1.4 to 1.5 m.
-- Lens 20 to 24 mm full-frame equivalent. Never wider than 16 mm.
-- Vertical lines stay vertical.
-- Living and dining: from the entrance or a corner, looking toward the windows or balcony.
-- Bedroom: from the doorway toward the window, bed seen at an angle.
-- Kitchen: from the kitchen entrance along the main counter run.
-- Bathroom: from the doorway. Do not show more floor area than the room has.
+Write it once per unit, before any render. It is the source of truth for every room in the unit.
 
-If the user gives a camera instruction, use it.
+```text
+UNIT LOCK
+Unit: [type, level, overall size]
+Plan-up is: [what the top of the drawing shows]
+Doors and openings:
+| ID | Connects | Plan wall and position | Type, swing, floor drop |
+| D1 | Lobby to Living | Living plan-down wall, plan-right end | Main door and gate, 100 mm drop |
+Windows:
+| ID | Room | Plan wall and position | Type, leaves |
+Rooms:
+| Printed label | Width x length (m) | Notes |
+Uncertain: [each item you cannot read, and how it will be rendered]
+```
 
-## 6. Singapore property context
+Rules:
+- List every door, opening and window in the unit, including rooms not requested.
+- Every door connects exactly two named spaces. Check each bath, the shelter and the yard: which space does the door open into?
+- An uncertain window is rendered as solid wall. An uncertain door is left out unless it is the entry.
+
+## 6. Camera Lock, Room Map and visibility
+
+Heading table. Apply it. Never eyeball left and right.
+
+| Camera faces | Camera left | Camera right | Behind camera |
+|---|---|---|---|
+| plan-up | plan-left | plan-right | plan-down |
+| plan-down | plan-right | plan-left | plan-up |
+| plan-left | plan-down | plan-up | plan-right |
+| plan-right | plan-up | plan-down | plan-left |
+
+For a diagonal heading, use the row of the nearer axis.
+
+```text
+CAMERA LOCK
+Entry: [door or opening ID, plan wall, which end. Or the standing position if there is no entry]
+Heading: [plan-up / plan-down / plan-left / plan-right, or diagonal toward a named corner]
+Lens: [mm], eye level [m], landscape, verticals straight
+```
+
+```text
+ROOM MAP: [printed label]
+Size: [W] m wide x [L] m long, about 1 to [R]. The camera looks down the [long / short] axis.
+LEFT ([plan wall]), near to far:
+  0.0 to 2.1 m  [feature, door or window ID]
+AHEAD ([plan wall]), left to right:
+RIGHT ([plan wall]), near to far:
+Out of frame: [features dropped by the visibility check]
+```
+
+Distances run from the camera along each wall. Every door, opening and window cites its Unit Lock ID. The camera stands where a person could stand: inside the room or in its doorway.
+
+Visibility check. Asking the image model to show something outside the frame forces it to bend the room. Only features inside the frame go in the prompt.
+
+- For each feature, find its forward distance (along the heading) and its sideways offset from the camera, in metres.
+- It is in frame when the offset is no more than the forward distance times k:
+
+| Lens | k, landscape | k, portrait or square | Half-angle, landscape |
+|---|---|---|---|
+| 24 mm | 0.75 | 0.50 | 37 degrees |
+| 20 mm | 0.90 | 0.60 | 42 degrees |
+| 16 mm | 1.10 | 0.75 | 48 degrees |
+
+- A wall hides what is behind it. If the sight line to a feature crosses a wall first, it is out of frame. Check this in L-shaped rooms and entry passages.
+- Partly in frame: describe it as "partly visible at the left edge" or "at the right edge".
+- Out of frame or behind the camera: leave it out of the prompt entirely. Never write "behind you".
+- If a feature the client must see is out of frame, change the camera: another entry, a diagonal heading or a second shot. Never go wider than 16 mm.
+- For a diagonal heading, compute the angles. Use Python if you have it.
+
+Camera defaults for floor plans. Eye level 1.4 to 1.5 m. Lens 20 to 24 mm.
+- Living and dining: from the main door or entrance toward the windows. In a room longer than about 1.8 times its width, plan two shots: one from the entrance, one reverse from the window end.
+- Bedroom: from the doorway toward the window.
+- Kitchen: from the entrance toward the far opening or window.
+- Bathroom: from the doorway. 16 mm is allowed. Never show more floor than the room has.
+- A doorway that only sees a passage: add a second shot from inside the room.
+
+If the user gives a camera instruction, use it and still run the visibility check. Name any requested feature that will be out of frame.
+
+Reference photo: match its camera position, height, direction, lens, framing and crop. Do not widen the view to make the room look bigger.
+
+## 7. Singapore context
 
 Scale:
-- Singapore homes are compact. Size furniture to the room, not to the style.
-- Reference sizes: 3-seater sofa about 2.0 to 2.2 m, queen bed about 1.5 x 1.9 m, 4-seater dining table about 1.2 to 1.4 m.
-- Keep walkways of at least 0.8 m where the room allows.
-- Ceiling height: use the source. Never add high ceilings, double volume or bulkheads that the source does not show.
+- Size furniture to the room. Reference sizes: 3-seat sofa 2.0 to 2.2 m, queen bed 1.5 x 1.9 m, super single 1.1 x 1.9 m, 4-seat table 1.2 to 1.4 m, 6-seat table about 1.8 m.
+- Keep walkways of at least 0.8 m where the room allows. Doors, windows, openings and the shelter door stay clear.
+- Furnish enough to make the size readable. A long room gets a full sofa set and a dining set, not two chairs.
 
-Fixed features to keep when present: household shelter steel door and vent, DB box, service yard, AC ledge, planter, bay window ledge, window grilles shown in the photo.
+Ceiling:
+- Height from the source. HDB about 2.6 m. Flat unless the source shows beams or a false ceiling.
+- Recessed downlights, cove lights and linear lights need a false ceiling. Use them only when the source shows one or the user asks. Otherwise use surface ceiling lights, pendants, track lights, wall lights and lamps.
 
 Light:
-- Singapore sits near the equator. The sun is high and strong, and sunrise and sunset stay near 7 am and 7 pm all year.
-- Default: late morning daylight softened by sheer curtains.
-- Options: late morning, afternoon, golden hour (warm low sun for hero shots), evening (interior lights on, dusk outside).
+- Near the equator the sun is high and strong. Sunrise and sunset stay near 7 am and 7 pm all year.
+- Default: late morning daylight through sheer curtains, with lamps at a warm 3000 K.
+- Options: afternoon, golden hour (warm low sun, hero shots), evening (lamps on, dusk outside).
 
 Views:
-- Never invent a specific view such as sea, a landmark, a skyline or a park unless the user states it.
-- If a photo shows the view, keep that view.
-- Neutral defaults: ground and low floor, greenery and landscaping. Mid floor, soft greenery and distant neighbouring blocks, slightly out of focus. High floor, open sky with distant, low-detail buildings.
+- Keep the view a photo shows. Never invent a sea, landmark, skyline or park unless the user states it.
+- Neutral defaults. Ground and low floor: greenery. Mid floor: soft greenery and distant blocks, slightly out of focus. High floor: open sky with distant, low-detail buildings.
 
-Climate:
-- No fireplaces, radiators or cold-climate items.
-- Ceiling fans suit Singapore homes. Add one only if the style suits it and the ceiling allows.
+Climate: no fireplaces, radiators or cold-climate items. A ceiling fan only where the ceiling allows it.
 
 Property type:
 - HDB: practical, compact, real HDB proportions. No hotel-lobby styling.
 - Condo and EC: premium but livable.
 - Landed: more space, stairs where shown, double volume only if the source shows it.
 
-## 7. Purpose and accuracy
+Dark palettes such as style 10: in HDB flats and rooms under about 12 square metres, keep walls and ceiling light. Put the dark tones in furniture, textiles and art.
 
-Default purpose is property marketing. For marketing renders, never show a feature the unit does not have: no extra windows, larger rooms, higher ceilings, better views, balconies or pools that are not in the source.
+## 8. Room types
 
-Do not put text, captions, logos or watermarks on the image. After an accepted marketing render, remind the user to caption it as virtually staged for illustration.
+- Living and dining: sofa facing the TV wall. In a long room, align the dining table with the long axis.
+- Bedroom: headboard against a solid wall, never across a window or door. Main bedroom: queen or king if walkways fit. Common bedroom: single, super single or queen.
+- Kitchen: the plan rarely shows counters. Write the counter layout in the Room Map as staging, keep every doorway clear, and show it at the Unit Check. Sink, hob and hood on the counter. No sofa, rug, curtains or loose furniture.
+- Bathroom: WC, basin and shower where the plan draws them. Floor drop at the shower. No furniture, rugs or curtains. Towels, a tray and a small plant only. No window unless the plan shows one.
+- Household shelter: steel door, frame and vents stay visible and clear. Freestanding storage only. Nothing built in or fixed to the shelter walls. Plain painted walls.
+- Service yard: washer space, a drying rack and a few pots. Never a living space.
+- Balcony or PES: outdoor furniture and pots only. Never enclose it.
+- Built-ins: only kitchen counters and one wardrobe per bedroom, on solid walls. No other carpentry the source does not show.
 
-## 8. Styles
+Flooring: dry rooms use the Style Lock dry floor. Bathrooms, the kitchen and the yard use the wet floor.
 
-Use exactly one style unless the user asks for a hybrid. Open the style file before writing the room design. The style controls furniture, materials, colours, lighting fixtures, curtains, rugs, art and decor. It never controls architecture or camera.
+## 9. Styles
 
-If the user attaches a mood reference image, it guides styling only.
+Use exactly one style unless the user asks for a hybrid. The style controls furniture, materials, colours, light fittings, curtains, rugs, art and decor. It never controls architecture, ceiling or camera. A mood image guides styling only.
 
 | # | Style | File |
 |---|---|---|
-| 01 | Modern Minimalist Singapore Condo | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/01-modern-minimalist-singapore.md |
+| 01 | Modern Minimalist Singapore | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/01-modern-minimalist-singapore.md |
 | 02 | Scandinavian Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/02-scandinavian-luxury.md |
 | 03 | Japandi Warm Minimalism | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/03-japandi-warm-minimalism.md |
 | 04 | Wabi-Sabi Natural Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/04-wabi-sabi-natural-luxury.md |
@@ -133,67 +218,128 @@ If the user attaches a mood reference image, it guides styling only.
 | 09 | Soft Contemporary | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/09-soft-contemporary.md |
 | 10 | Dark Modern Luxury | https://raw.githubusercontent.com/kiianlow/interior-render-workflow/main/10-dark-modern-luxury.md |
 
-If a link will not open, use the matching file at https://github.com/kiianlow/interior-render-workflow and say which one you used.
+If a style link will not open, use the same file name on the mirror at https://cdn.jsdelivr.net/gh/kiianlow/interior-render-workflow@main/ and say so. If both fail, stop.
 
-## 9. Generation prompt
+## 10. Generation prompt
 
-The image tool only sees the prompt and the image. It does not see this repo. The prompt must carry the locks.
+The image tool sees only the prompt and the attached image. It never sees this repo, so the prompt must carry the locks. For floor plan runs, attach the plan to the same message and use this JSON:
 
-Build it in this order and keep it under about 200 words:
+```json
+{
+  "task": "One photorealistic interior photograph, landscape.",
+  "plan_usage": "The attached floor plan is a layout reference only. Find the room labelled [LABEL]. Do not render the plan, labels, dimension lines or a top-down view.",
+  "room": "[Room] of a Singapore [type], [level] floor.",
+  "proportions": "The room is [W] m wide and [L] m long, about 1 to [R], ceiling about [H] m. The camera looks down the [long] axis, so [what that does to the walls].",
+  "camera": "[Position], eye level [h] m, [lens] mm lens, facing [target]. Verticals straight.",
+  "left_wall_near_to_far": ["[feature, size, distance]"],
+  "ahead_left_to_right": ["[feature, size]"],
+  "right_wall_near_to_far": ["[feature, size, distance]"],
+  "furniture": ["[piece, size, position]"],
+  "style": "[from the Style Lock, or the style file for a first room]",
+  "light_and_view": "[time of day, lamp temperature, view rule]",
+  "must_hold": ["[up to 3 items most likely to go wrong]"],
+  "quality": "Professional real estate photography, true-to-scale furniture, natural materials with real texture, contact shadows. No text, logos or watermarks. No added windows, doors or openings."
+}
+```
 
-1. Subject: "Photorealistic interior photograph of the [room] of a Singapore [type], [level] floor."
-2. Architecture: state what exists, with counts and positions. Example: "One full-height window on the left wall, sliding door to the balcony on the far wall, kitchen opening on the right, beam across the ceiling near the window."
-3. Camera: the one-line Camera Lock.
-4. Style: two or three lines taken from the style file (palette, key materials, key furniture).
-5. Light and view: time of day and the view rule from section 6.
-6. Quality: "Professional real estate interior photography, true-to-scale furniture, natural materials, contact shadows, straight verticals."
-7. Exclusions, kept short: "No text, logos or watermarks. No added windows, doors or openings."
+Rules:
+- Only features that pass the visibility check. A partly visible feature names its edge.
+- Write in camera terms. Never put plan-left, plan-up or door IDs in the prompt. The image model cannot use them.
+- An open gap is "open doorway with no door". An uncertain window is "solid plain wall".
+- Length: style, light and quality together stay under about 120 words. The spatial and furniture fields are exempt, because they carry the geometry and the scale. Keep the whole prompt under about 450 words.
+- State the architecture positively. Keep "do not" items to plan_usage and quality.
+- On a regeneration, put the failed element first in must_hold.
 
-State the architecture positively. Long lists of "do not" items dilute the prompt.
+Reference photo runs: use the photo as the base image. Drop plan_usage and set the camera line to: "Keep the camera, framing and all architecture identical to the attached photo. Change only furniture, finishes, light fittings and decor."
 
-Full template: `generation-prompt.md`.
+## 11. QC
 
-## 10. QC with evidence
+Compare the render with the Unit Lock, the Room Map and the source. Fill this table:
 
-Compare the render with the source and fill this table in the chat:
-
-| Check | Source | Render | Result |
+| Check | Locked | Render | Result |
 |---|---|---|---|
-| Doors (count, position) | | | |
-| Windows (count, position, type) | | | |
-| Openings | | | |
-| Columns, beams, ceiling | | | |
-| Built-ins and fixed features | | | |
-| Room proportions | | | |
-| Camera and verticals | | | |
-| Furniture scale and walkways | | | |
-| View and daylight | | | |
-| Style match | | | |
-| Artefacts (warped lines, floating or duplicate objects, text) | | | |
+| 1. Doors and openings (count, position) | | | |
+| 2. Door connections (each leads where the Unit Lock says) | | | |
+| 3. Windows (count, position, type) | | | |
+| 4. Left and right mapping (every wall matches the heading table) | | | |
+| 5. Near-to-far order (features on each wall in the locked order) | | | |
+| 6. Field of view (nothing invented to fill the frame, nothing in frame missing) | | | |
+| 7. Room ratio (wide versus long reads like the stated ratio) | | | |
+| 8. Fixed features (columns, beams, ceiling, shelter door, WC, basin, shower) | | | |
+| 9. Camera, furniture scale and walkways | | | |
+| 10. Style, light and view | | | |
+| 11. Artefacts (warped lines, floating or duplicate objects, text, plan drawn in) | | | |
 
-Result is PASS, MINOR or MAJOR. Do not pass a check you cannot verify. Mark it UNCLEAR and say why.
+Result is PASS, MINOR, MAJOR or UNCLEAR. Do not pass a check you cannot verify. Mark it UNCLEAR and say why. An item marked uncertain in the Unit Lock passes when it is rendered conservatively.
 
-Decision: ACCEPT only when there is no MAJOR and no UNCLEAR on doors, windows, openings or proportions.
+Decision, one of:
+- ACCEPT: no MAJOR anywhere and no UNCLEAR on checks 1 to 8.
+- REGENERATE: MAJOR or UNCLEAR on any of checks 1 to 8.
+- EDIT: MAJOR on checks 9 to 11 only.
+- STOP: the third attempt did not reach ACCEPT.
 
-## 11. Revision
+MINOR results do not block ACCEPT. List them in one line. Your own QC cannot catch an error in a lock you wrote. The user's eye is the final check.
 
-- MAJOR on architecture or camera: regenerate from the original source with a stronger architecture line that names the failed element. Editing a render with wrong geometry keeps the error.
-- MINOR or styling issues: edit the current render and change only the named element.
-- Maximum 3 attempts per render. After the third, stop. Report what keeps failing and the likely fix, such as supplying a reference photo, stating dimensions, or choosing a simpler camera.
+## 12. Revision
 
-Short user commands and how to handle them: `refinements.md`.
+- REGENERATE from the original source with the failed element first. Editing a render with wrong geometry keeps the error. If the Room Map was wrong, fix it first.
+- EDIT the current render for checks 9 to 11. Change only the named element, then run checks 1 to 8 again, because an edit can redraw the whole image.
+- Every generation and every edit is one attempt. Maximum 3 per render. After the third, show the best attempt, what keeps failing and the likely fix, such as a camera marker, a printed dimension, a reference photo or a simpler camera.
 
-## 12. Style Lock for multi-room units
+| User says | Action |
+|---|---|
+| go | Continue from the next step |
+| Window or wall is wrong | Fix the Room Map if needed, then regenerate |
+| Wrong angle | New Camera Lock and visibility check, then regenerate |
+| Change the sofa, change the rug | Edit that item only |
+| Warmer, golden hour | Edit the light only |
+| Less clutter | Edit, remove decor |
+| Next room: [label] | Same Unit Lock and Style Lock, new Camera Lock and Room Map |
+| Portrait version | New visibility check with the portrait k values, then regenerate |
+| summary | Print the Run Summary |
 
-After the first accepted render of a unit, write this in the chat and reuse it for every other room in the same unit:
+## 13. Style Lock
 
-- Style number
-- Wall colour
-- Flooring (continuous across rooms unless the source shows a change)
-- Timber tone
-- Metal finish
-- Fabric palette
-- Key furniture pieces
-- Lighting temperature and time of day
+After the first accepted render of a unit, write this and reuse it for every room:
 
-Template: `style-lock.md`.
+```text
+STYLE LOCK
+Style: 
+Wall finish and colour: 
+Floor, dry rooms: 
+Floor, wet rooms: 
+Timber tone: 
+Metal finish: 
+Fabric palette: 
+Kitchen cabinets and counter: 
+Key furniture: 
+Light fittings: 
+Daylight and lamp temperature: 
+View: 
+```
+
+The Style Lock feeds the prompt's style field. It never changes architecture.
+
+## 14. Run Summary
+
+After each accepted render, or on "summary", print:
+
+```text
+RUN SUMMARY
+Engine: 3.0.0
+Unit: 
+Unit Lock: [the full block, as checked]
+Style Lock: [the full block]
+Rooms done: [label, entry, heading, lens, decision, attempts]
+Open issues: 
+```
+
+The user saves it. Pasted into a new chat under the kickoff, it restores the unit without a new Unit Check.
+
+## 15. Captions
+
+Never put text, logos or watermarks on the image. Print this under every accepted render:
+
+"Caption: AI-generated illustration, virtually staged. The actual unit differs."
+
+Then: "Before posting: compare doors, windows and room shape with the plan."

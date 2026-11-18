@@ -1,0 +1,105 @@
+{
+  "note": "Test unit geometry for fov.py. HDB 4-room BTO, 10th floor. Each room has its own origin at its plan-left, plan-down inside corner. x grows toward plan-right, y toward plan-up, metres. Printed dimensions where the brief gives them, otherwise estimates from the brief's answer key. Not yet checked against the plan image.",
+  "rooms": {
+    "living": {
+      "segments": [
+        {"name": "D2 kitchen opening, no door (est 1.0 m)", "wall": "plan-down", "from": [0, 0], "to": [1.0, 0], "blocks": false},
+        {"name": "Solid wall with shallow recess, purpose uncertain (est)", "wall": "plan-down", "from": [1.0, 0], "to": [1.9, 0]},
+        {"name": "D1 main door and gate (est 1.0 m)", "wall": "plan-down", "from": [1.9, 0], "to": [2.9, 0]},
+        {"name": "RC column beside the main door (est)", "wall": "plan-down", "from": [2.9, 0], "to": [3.25, 0]},
+        {"name": "Shelter wall, solid (2.1 m printed)", "wall": "plan-left", "from": [0, 0], "to": [0, 2.1]},
+        {"name": "D3 corridor opening, no door (1.0 m printed)", "wall": "plan-left", "from": [0, 2.1], "to": [0, 3.1], "blocks": false},
+        {"name": "Bedroom 3 wall, solid (3.9 m printed)", "wall": "plan-left", "from": [0, 3.1], "to": [0, 7.15]},
+        {"name": "W1 window wall, 4-leaf casement, full width", "wall": "plan-up", "from": [0, 7.15], "to": [3.25, 7.15]},
+        {"name": "RC column at the door end (est)", "wall": "plan-right", "from": [3.25, 0], "to": [3.25, 0.35]},
+        {"name": "W2 long wall, render solid (uncertain)", "wall": "plan-right", "from": [3.25, 0.35], "to": [3.25, 6.8]},
+        {"name": "RC column at the window end (est)", "wall": "plan-right", "from": [3.25, 6.8], "to": [3.25, 7.15]}
+      ]
+    },
+    "main-bedroom": {
+      "segments": [
+        {"name": "D9 Bath 1 door", "wall": "plan-down", "from": [5.3, 2.73], "to": [4.5, 2.73]},
+        {"name": "Bath 1 wall, solid", "wall": "plan-down", "from": [4.5, 2.73], "to": [2.9, 2.73]},
+        {"name": "Wall shared with Bedroom 2, then RC corner, solid", "wall": "plan-up", "from": [5.5, 3.73], "to": [2.9, 3.73]},
+        {"name": "RC corner face", "from": [2.9, 3.73], "to": [2.9, 4.6], "show": false},
+        {"name": "Main body plan-up wall, solid part near the corner", "wall": "plan-up", "from": [2.9, 4.6], "to": [2.6, 4.6]},
+        {"name": "W6 window, 2-leaf casement (est 1.6 m)", "wall": "plan-up", "from": [2.6, 4.6], "to": [1.0, 4.6]},
+        {"name": "Main body plan-up wall, solid part at the far corner", "wall": "plan-up", "from": [1.0, 4.6], "to": [0, 4.6]},
+        {"name": "Far wall, thick RC, no window", "wall": "plan-left", "from": [0, 4.6], "to": [0, 0]},
+        {"name": "Main body plan-down wall (W7 uncertain, render solid)", "wall": "plan-down", "from": [0, 0], "to": [2.9, 0]},
+        {"name": "Bath 1 back wall", "from": [2.9, 1.13], "to": [2.9, 2.73], "show": false},
+        {"name": "Wall below Bath 1", "from": [2.9, 0], "to": [2.9, 1.13], "show": false}
+      ]
+    },
+    "bedroom-2": {
+      "segments": [
+        {"name": "Plan-left wall, solid", "wall": "plan-left", "from": [0, 0], "to": [0, 1.5]},
+        {"name": "W5 narrow window (position est, type uncertain)", "wall": "plan-left", "from": [0, 1.5], "to": [0, 2.1]},
+        {"name": "Plan-left wall, solid, far part", "wall": "plan-left", "from": [0, 2.1], "to": [0, 3.85]},
+        {"name": "W4 window wall (type uncertain, est width)", "wall": "plan-up", "from": [0, 3.85], "to": [3.4, 3.85]},
+        {"name": "Party wall with Bedroom 3, solid", "wall": "plan-right", "from": [3.4, 0], "to": [3.4, 3.85]}
+      ]
+    },
+    "bedroom-3": {
+      "segments": [
+        {"name": "Party wall with Bedroom 2, solid", "wall": "plan-left", "from": [0, 0], "to": [0, 3.9]},
+        {"name": "W3 window, 3-leaf casement", "wall": "plan-up", "from": [0, 3.9], "to": [2.45, 3.9]},
+        {"name": "RC column in the plan-right corner", "wall": "plan-up", "from": [2.45, 3.9], "to": [2.8, 3.9]},
+        {"name": "Wall shared with Living/Dining, solid", "wall": "plan-right", "from": [2.8, 3.9], "to": [2.8, 0]}
+      ]
+    },
+    "bath-1": {
+      "segments": [
+        {"name": "Wall toward Bath 2 and shaft, basin near the door", "wall": "plan-right", "from": [2.4, 1.6], "to": [2.4, 0]},
+        {"name": "Plan-down wall, WC (position indicative)", "wall": "plan-down", "from": [2.4, 0], "to": [0, 0]},
+        {"name": "Wall shared with Main Bedroom, shower zone on this side", "wall": "plan-left", "from": [0, 0], "to": [0, 1.6]}
+      ]
+    },
+    "bath-2": {
+      "segments": [
+        {"name": "Wall shared with Household Shelter", "wall": "plan-right", "from": [1.6, 2.3], "to": [1.6, 0]},
+        {"name": "Plan-down wall, WC toward the plan-left end", "wall": "plan-down", "from": [1.6, 0], "to": [0, 0]},
+        {"name": "Wall shared with Bath 1", "wall": "plan-left", "from": [0, 0], "to": [0, 2.3]}
+      ]
+    },
+    "shelter": {
+      "segments": [
+        {"name": "Wall shared with Living/Dining, solid", "wall": "plan-right", "from": [1.6, 1.4], "to": [1.6, 0]},
+        {"name": "Wall backing onto the Kitchen, solid", "wall": "plan-down", "from": [1.6, 0], "to": [0, 0]},
+        {"name": "Wall shared with Bath 2, solid", "wall": "plan-left", "from": [0, 0], "to": [0, 1.4]}
+      ]
+    },
+    "kitchen": {
+      "segments": [
+        {"name": "Exterior RC wall", "wall": "plan-down", "from": [3.2, 0], "to": [0, 0]},
+        {"name": "Yard wall, solid, exterior corner (est)", "wall": "plan-left", "from": [0, 0], "to": [0, 0.25]},
+        {"name": "D10 doorway to the service yard, floor drop (position est)", "wall": "plan-left", "from": [0, 0.25], "to": [0, 1.05]},
+        {"name": "Yard wall, solid", "wall": "plan-left", "from": [0, 1.05], "to": [0, 2.3]},
+        {"name": "Shelter back wall, solid", "wall": "plan-up", "from": [0, 2.3], "to": [2.2, 2.3]},
+        {"name": "Main counter front edge along the shelter back wall (staging, 0.6 m deep)", "from": [2.2, 1.7], "to": [0.05, 1.7], "blocks": false},
+        {"name": "Short counter return near the entrance on the exterior wall (staging)", "from": [3.15, 0.6], "to": [2.3, 0.6], "blocks": false}
+      ]
+    },
+    "service-yard": {
+      "segments": [
+        {"name": "Louvred or open parapet to outside", "wall": "plan-down", "from": [2.4, 0], "to": [0, 0]},
+        {"name": "Solid thick RC wall", "wall": "plan-left", "from": [0, 0], "to": [0, 1.4]},
+        {"name": "Wall shared with Bath 2 and shaft, solid", "wall": "plan-up", "from": [0, 1.4], "to": [2.4, 1.4]}
+      ]
+    }
+  },
+  "shots": [
+    {"id": "living-a-old", "room": "living", "camera": [2.7, 0.45], "heading": "plan-up", "lens": 24, "frame": "landscape"},
+    {"id": "living-a", "room": "living", "camera": [2.7, 0.45], "heading": {"toward": [0, 7.15]}, "lens": 20, "frame": "landscape"},
+    {"id": "living-b", "room": "living", "camera": [1.625, 6.35], "heading": "plan-down", "lens": 20, "frame": "landscape"},
+    {"id": "main-bedroom", "room": "main-bedroom", "camera": [5.45, 3.23], "heading": "plan-left", "lens": 20, "frame": "landscape"},
+    {"id": "main-bedroom-b", "room": "main-bedroom", "camera": [3.3, 3.25], "heading": "plan-left", "lens": 20, "frame": "landscape"},
+    {"id": "bedroom-2", "room": "bedroom-2", "camera": [2.95, 0.15], "heading": "plan-up", "lens": 20, "frame": "landscape"},
+    {"id": "bedroom-3", "room": "bedroom-3", "camera": [0.45, 0.15], "heading": "plan-up", "lens": 20, "frame": "landscape"},
+    {"id": "bath-1", "room": "bath-1", "camera": [2.0, 1.5], "heading": "plan-down", "lens": 16, "frame": "landscape"},
+    {"id": "bath-2", "room": "bath-2", "camera": [1.15, 2.2], "heading": "plan-down", "lens": 20, "frame": "landscape"},
+    {"id": "shelter", "room": "shelter", "camera": [0.8, 1.45], "heading": "plan-down", "lens": 20, "frame": "landscape"},
+    {"id": "kitchen", "room": "kitchen", "camera": [2.8, 1.35], "heading": "plan-left", "lens": 20, "frame": "landscape"},
+    {"id": "service-yard", "room": "service-yard", "camera": [2.35, 0.65], "heading": "plan-left", "lens": 20, "frame": "landscape"}
+  ]
+}

@@ -1,4 +1,4 @@
-# Style 07 — Organic Modern
+# Style 07: Organic Modern
 
 ## Design Identity
 
@@ -66,6 +66,8 @@ Use:
 - Warm floor lamps
 - Indirect architectural lighting
 
+Recessed, cove and linear lights only where the ceiling already has a false ceiling (START-HERE section 7). Otherwise use pendants, surface ceiling lights, wall lights and lamps.
+
 ## Curtains
 
 Prefer:
@@ -74,6 +76,12 @@ Prefer:
 - Warm cream
 - Beige
 - Natural neutral tones
+
+## Wet Areas and Kitchen
+
+- Bathroom floor and walls: Limestone-look tiles or microcement-look tiles
+- Bathroom fittings: Rounded oak vanity, ceramic basin, brushed brass tapware
+- Kitchen: Natural timber and cream cabinets, travertine-look counter
 
 ## Decorative Styling
 

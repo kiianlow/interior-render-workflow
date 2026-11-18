@@ -1,4 +1,4 @@
-# Style 05 — Quiet Luxury
+# Style 05: Quiet Luxury
 
 ## Design Identity
 
@@ -70,6 +70,8 @@ Use:
 
 Lighting should be sophisticated and restrained.
 
+Recessed, cove and linear lights only where the ceiling already has a false ceiling (START-HERE section 7). Otherwise use pendants, surface ceiling lights, wall lights and lamps.
+
 ## Curtains
 
 Prefer:
@@ -78,6 +80,12 @@ Prefer:
 - Soft wool-like fabrics
 - Warm neutral tones
 - Layered sheers where appropriate
+
+## Wet Areas and Kitchen
+
+- Bathroom floor and walls: Honed travertine or limestone-look tiles
+- Bathroom fittings: Walnut vanity, stone basin, brushed bronze tapware
+- Kitchen: Cream or walnut flat-panel cabinets, honed natural stone counter
 
 ## Decorative Styling
 

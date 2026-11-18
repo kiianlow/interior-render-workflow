@@ -1,4 +1,4 @@
-# Style 06 — Contemporary Luxury
+# Style 06: Contemporary Luxury
 
 ## Design Identity
 
@@ -50,7 +50,7 @@ Use:
 - Stone coffee tables
 - Contemporary dining tables
 - Architectural lounge chairs
-- Refined built-in cabinetry
+- Refined freestanding cabinetry
 - Statement lighting fixtures
 
 Furniture can be visually stronger than in the other styles but must remain correctly scaled.
@@ -67,12 +67,20 @@ Use:
 
 Use light to highlight architectural features and materials.
 
+Recessed, cove and linear lights only where the ceiling already has a false ceiling (START-HERE section 7). Otherwise use pendants, surface ceiling lights, wall lights and lamps.
+
 ## Curtains
 
 Prefer:
 - Full-height curtains
 - Warm neutral fabrics
 - Sheers combined with heavier curtains where appropriate
+
+## Wet Areas and Kitchen
+
+- Bathroom floor and walls: Large-format stone-look porcelain
+- Bathroom fittings: Dark timber vanity, stone basin, brushed stainless or bronze tapware
+- Kitchen: Walnut or dark oak cabinets paired with light fronts, stone counter
 
 ## Decorative Styling
 

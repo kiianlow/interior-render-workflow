@@ -1,4 +1,4 @@
-# Style 03 — Japandi Warm Minimalism
+# Style 03: Japandi Warm Minimalism
 
 ## Design Identity
 
@@ -70,6 +70,8 @@ Use:
 
 Avoid harsh direct lighting.
 
+Recessed, cove and linear lights only where the ceiling already has a false ceiling (START-HERE section 7). Otherwise use pendants, surface ceiling lights, wall lights and lamps.
+
 ## Curtains
 
 Prefer:
@@ -78,6 +80,12 @@ Prefer:
 - Beige
 - Soft taupe
 - Simple full-height curtains
+
+## Wet Areas and Kitchen
+
+- Bathroom floor and walls: Honed stone-look tiles or microcement-look tiles in sand
+- Bathroom fittings: Oak vanity, simple ceramic basin, matte black tapware
+- Kitchen: Natural oak or warm white flat-panel cabinets, honed stone-look counter
 
 ## Decorative Styling
 

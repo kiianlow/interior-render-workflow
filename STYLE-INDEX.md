@@ -4,7 +4,7 @@ Use exactly one style unless the user asks for a hybrid. Styles control furnitur
 
 | # | Style | Character | Marketing fit |
 |---|---|---|---|
-| 01 | Modern Minimalist Singapore Condo | Warm, clean, contemporary, practical | HDB upgraders, young couples, resale condos |
+| 01 | Modern Minimalist Singapore | Warm, clean, contemporary, practical | HDB upgraders, young couples, resale condos |
 | 02 | Scandinavian Luxury | Bright, airy, refined, soft | Young families, compact bright units |
 | 03 | Japandi Warm Minimalism | Calm, natural, restrained | Young professionals, HDB and condo |
 | 04 | Wabi-Sabi Natural Luxury | Organic, tactile, earthy | Design-led buyers, lifestyle content |

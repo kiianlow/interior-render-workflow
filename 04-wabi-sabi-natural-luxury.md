@@ -1,4 +1,4 @@
-# Style 04 — Wabi-Sabi Natural Luxury
+# Style 04: Wabi-Sabi Natural Luxury
 
 ## Design Identity
 
@@ -36,11 +36,12 @@ Preferred:
 - Limewash
 - Textured plaster
 - Microcement
-- Raw or lightly finished timber
+- Raw or lightly finished timber, such as natural white oak with visible grain
 - Linen
 - Cotton
 - Handmade ceramics
 - Woven materials
+- Matte black or aged bronze metal, used sparingly
 
 Natural variation and subtle imperfections are desirable.
 
@@ -68,6 +69,8 @@ Use:
 
 Lighting should emphasise material texture.
 
+Recessed, cove and linear lights only where the ceiling already has a false ceiling (START-HERE section 7). Otherwise use pendants, surface ceiling lights, wall lights and lamps.
+
 ## Curtains
 
 Prefer:
@@ -77,6 +80,12 @@ Prefer:
 - Taupe
 
 Use soft, slightly textured fabrics.
+
+## Wet Areas and Kitchen
+
+- Bathroom floor and walls: Honed grey microcement-look tiles on floor and walls
+- Bathroom fittings: White oak vanity, stone or stoneware basin, aged bronze or matte black tapware
+- Kitchen: White oak flat-panel cabinets with a limewash-look finish, honed travertine-look counter
 
 ## Decorative Styling
 

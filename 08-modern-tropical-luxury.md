@@ -1,10 +1,10 @@
-# Style 08 — Modern Tropical Luxury
+# Style 08: Modern Tropical Luxury
 
 ## Design Identity
 
 Contemporary tropical residential interior adapted for a sophisticated Singapore home.
 
-Combine modern architecture with warm natural materials, greenery, natural ventilation cues and indoor-outdoor visual continuity.
+Combine warm natural materials, greenery and soft daylight for an indoor-outdoor feel, within the existing windows and openings.
 
 The result should feel like a refined tropical residence rather than a resort hotel.
 
@@ -68,6 +68,8 @@ Use:
 
 Daylight should feel bright but not overexposed.
 
+Recessed, cove and linear lights only where the ceiling already has a false ceiling (START-HERE section 7). Otherwise use pendants, surface ceiling lights, wall lights and lamps.
+
 ## Curtains
 
 Prefer:
@@ -76,6 +78,12 @@ Prefer:
 - Natural woven fabrics
 - Warm white
 - Beige
+
+## Wet Areas and Kitchen
+
+- Bathroom floor and walls: Warm stone-look tiles
+- Bathroom fittings: Teak-tone vanity, stone basin, matte black or bronze tapware
+- Kitchen: Teak-tone and cream cabinets, warm stone counter
 
 ## Decorative Styling
 

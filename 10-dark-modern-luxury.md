@@ -1,4 +1,4 @@
-# Style 10 — Dark Modern Luxury
+# Style 10: Dark Modern Luxury
 
 ## Design Identity
 
@@ -74,6 +74,8 @@ Use:
 
 Avoid excessively bright cool-white lighting.
 
+Recessed, cove and linear lights only where the ceiling already has a false ceiling (START-HERE section 7). Otherwise use pendants, surface ceiling lights, wall lights and lamps.
+
 ## Curtains
 
 Prefer:
@@ -84,6 +86,12 @@ Prefer:
 - Soft textured fabrics
 
 Use sheers where needed to maintain daylight.
+
+## Wet Areas and Kitchen
+
+- Bathroom floor and walls: Dark stone-look porcelain on the floor, lighter walls in small bathrooms
+- Bathroom fittings: Walnut vanity, stone basin, brushed bronze tapware
+- Kitchen: Dark walnut or charcoal cabinets, warm stone counter. In small HDB kitchens use lighter wall cabinets
 
 ## Decorative Styling
 

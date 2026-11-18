@@ -1,8 +1,8 @@
-# Style 01 — Modern Minimalist Singapore Condo
+# Style 01: Modern Minimalist Singapore
 
 ## Design Identity
 
-Modern minimalist Singapore condominium interior.
+Modern minimalist interior for a Singapore HDB flat or condominium.
 
 The design should feel warm, refined, contemporary, practical and highly livable rather than cold or showroom-like.
 
@@ -57,11 +57,11 @@ Use:
 - Clean-lined dining tables
 - Simple sculptural occasional chairs
 - Minimal coffee tables
-- Integrated-looking storage
+- Clean-lined storage
 - Contemporary dining chairs
 - Simple upholstered beds
 
-Furniture should feel appropriately scaled to a Singapore condominium.
+Furniture should feel appropriately scaled to a compact Singapore home.
 
 Maintain comfortable circulation and realistic functional clearances.
 
@@ -79,7 +79,9 @@ Daylight should remain believable and should not overpower the room.
 
 Avoid dramatic cinematic lighting unless specifically requested.
 
-## Curtains and Window Treatment
+Recessed, cove and linear lights only where the ceiling already has a false ceiling (START-HERE section 7). Otherwise use pendants, surface ceiling lights, wall lights and lamps.
+
+## Curtains
 
 Prefer:
 - Full-height sheer curtains
@@ -88,6 +90,12 @@ Prefer:
 - Simple floor-to-ceiling treatments
 
 Keep window treatments elegant and visually quiet.
+
+## Wet Areas and Kitchen
+
+- Bathroom floor and walls: Large-format matte porcelain in warm grey or beige
+- Bathroom fittings: Light oak vanity, wall-hung basin, brushed metal tapware
+- Kitchen: Warm off-white or light oak flat-panel cabinets, quartz or sintered stone counter
 
 ## Decorative Styling
 
@@ -107,7 +115,7 @@ Do not fill empty surfaces unnecessarily.
 ## Spatial Character
 
 The room should feel:
-- Spacious
+- Open
 - Calm
 - Warm
 - Refined
@@ -145,4 +153,4 @@ Prioritise:
 - Physically believable surfaces
 - Subtle material imperfections
 
-The result should look like a professionally photographed completed Singapore condominium interior.
+The result should look like a professionally photographed completed Singapore home.
